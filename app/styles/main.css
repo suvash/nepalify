@@ -1,1 +1,10 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+.container .debug-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #1F1F1F;
+  color: #FFFFFF;
+}
