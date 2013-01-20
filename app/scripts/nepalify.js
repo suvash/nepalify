@@ -110,75 +110,10 @@ var npiext = {
         return array[keyCode-32];
     },
 
-    initialize: function()
-    {
-        //document.getElementById("input").addEventListener('keypress', keyPressHandler, false);
-        document.addEventListener('keypress', npiext.keyPressHandler, false); // <---- Enabling this will totally replace the input with nepali translisteration
-    },
-
-    destroy: function()
-    {
-        document.removeEventListener('keypress', npiext.keyPressHandler, false);
-    },
-
     // Wrapper function for the transliteration function
     unicodify: function(character)
     {
         return npiext.ascii2unicode_char_test(character, npiext.uni_nep_roman_start32);
-    },
-
-    // keyPressHandler Listener for the assigned field
-    keyPressHandler: function(event)
-    {
-
-        if(event.ctrlKey || event.altKey)
-        {
-            //do absolutely nothing
-        }
-        else
-        {
-            var pressed = event.charCode;
-            if(pressed < 126 && pressed > 32 )
-            {
-                console.log(event, npiext.unicodify(pressed));
-                event.preventDefault();
-                // ----- stops the event from further propagation i.e. keyup event wont occur
-                // npiext.sendKeyToTarget(event, npiext.unicodify(pressed));
-            }
-        }
     }
 
-    // Send the transliterated keypress back to where the event originated from
-    // sendKeyToTarget: function(event, key)
-    // {
-    //     var target = event.target;
-    //     var myEventObj;
-
-
-    //     var selection_start = target.selectionStart;
-    //     var selection_end = target.selectionEnd;
-
-    //     if (target.setSelectionRange) {  //text fields
-
-    //         target.value =  target.value.substring(0, selection_start)
-    //             + key
-    //             + target.value.substring(selection_end);
-    //         target.setSelectionRange(selection_start + key.length,selection_start +
-    //                             key.length);
-
-
-    //     }
-    //     else
-    //     {  //others - eg., iframe
-    //        //send the nepali characters -- haven't figured out how this works
-    //         myEventObj = '';
-    //         myEventObj = document.createEvent('KeyEvents');
-    //         myEventObj.initKeyEvent('keypress',true,true,window,false,false,false,false,0,key.charCodeAt(0));
-    //         target.dispatchEvent(myEventObj);
-
-    //     }
-
-    // }
 };
-
-npiext.initialize();
