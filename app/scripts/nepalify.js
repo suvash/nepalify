@@ -1,6 +1,6 @@
 'use strict';
 
-var nepalify = {
+(function (nepalify) {
 
   // array to hold unicode values - maps unicode values with ascii indices
   /* --------------------------------------------------------------------------
@@ -9,7 +9,7 @@ var nepalify = {
      hence necessary increment/decrement should be done ( by 32 )
      --------------------------------------------------------------------------
      */
-  unicodeRomanToNepaliMap : [ '\u0020',   // SPACE
+  var unicodeRomanToNepaliMap = [ '\u0020',   // SPACE
                               '\u0021',   // ! -> !
                               '\u0953',   // ' -> '
                               '\u0023',   // # -> #
@@ -104,26 +104,26 @@ var nepalify = {
                               '\u0903',   // | -> ः
                               '\u0910',   // } -> ऐ
                               '\u093C'    // ~ -> ़
-                                ],
+                                ];
 
   // Default class to be nepalified
-  nepalifyClass: 'nepalify',
+  var nepalifyClass = 'nepalify';
 
   // Return the unicode of the key passed ( else return the key itself )
-  romanToNepaliUnicodeChar: function (keyCode, array)
+  function romanToNepaliUnicodeChar(keyCode, array)
   {
     return array[keyCode - 32];
-  },
+  }
 
   // Wrapper function for the keymap function
-  unicodify: function (character)
+  function unicodify(character)
   {
-    return nepalify.romanToNepaliUnicodeChar(character, nepalify.unicodeRomanToNepaliMap);
-  },
+    return romanToNepaliUnicodeChar(character, unicodeRomanToNepaliMap);
+  }
 
   // Extracted from StackOverflow
   // http://stackoverflow.com/questions/3622818/ies-document-selection-createrange-doesnt-include-leading-or-trailing-blank-li
-  getInputSelection: function (el) {
+  function getInputSelection(el) {
     var start = 0, end = 0, normalizedValue, range,
     textInputRange, len, endRange;
 
@@ -167,21 +167,12 @@ var nepalify = {
       start: start,
       end: end
     };
-  },
+  }
 
-  setNepalifyClass: function (customClass) {
-    $('.' + nepalify.nepalifyClass).unbind('keypress');
-    if (customClass === undefined || customClass === '') {
-      nepalify.nepalifyClass = 'nepalify';
-    } else {
-      nepalify.nepalifyClass = customClass;
-    }
-    nepalify.initialize();
-  },
 
-  initialize: function () {
+  function initialize() {
     // Only on the selected classes
-    $('.' + nepalify.nepalifyClass).keypress(function (event) {
+    $('.' + nepalifyClass).keypress(function (event) {
       // Only on input fields and textareas
       if (event.target.type === 'text' || event.target.type === 'textarea') {
         var eventKey = event.which;
@@ -191,11 +182,11 @@ var nepalify = {
 
           var target = event.target;
 
-          var selectionTarget = nepalify.getInputSelection(target);
+          var selectionTarget = getInputSelection(target);
           var selectionStart = selectionTarget.start;
           var selectionEnd = selectionTarget.end;
 
-          var nepalifiedKey = nepalify.unicodify(eventKey);
+          var nepalifiedKey = unicodify(eventKey);
 
           target.value =  target.value.substring(0, selectionStart) + nepalifiedKey + target.value.substring(selectionEnd);
           target.setSelectionRange(selectionStart + nepalifiedKey.length, selectionStart + nepalifiedKey.length);
@@ -203,9 +194,18 @@ var nepalify = {
         }
       }
     });
-
   }
 
-};
+  nepalify.setNepalifyClass = function(customClass) {
+    $('.' + nepalifyClass).unbind('keypress');
+    if (customClass === undefined || customClass === '') {
+      nepalifyClass = 'nepalify';
+    } else {
+      nepalifyClass = customClass;
+    }
+    initialize();
+  };
 
-nepalify.initialize();
+  initialize();
+
+})(window.nepalify = window.nepalify || {});
