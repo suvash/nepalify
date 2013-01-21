@@ -1,4 +1,4 @@
-module.exports = function( grunt ) {
+module.exports = function (grunt) {
   'use strict';
   //
   // Grunt configuration:
@@ -42,7 +42,7 @@ module.exports = function( grunt ) {
     },
 
     // generate application cache manifest
-    manifest:{
+    manifest: {
       dest: ''
     },
 
