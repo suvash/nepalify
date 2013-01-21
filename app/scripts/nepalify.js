@@ -106,6 +106,9 @@ var nepalify = {
                               '\u093C'    // ~ -> ़
                                 ],
 
+  // Default class to be nepalified
+  nepalifyClass: 'nepalify',
+
   // Return the unicode of the key passed ( else return the key itself )
   romanToNepaliUnicodeChar: function (keyCode, array)
   {
@@ -166,15 +169,19 @@ var nepalify = {
     };
   },
 
-  initialize: function (nepalifyClass) {
-    var targetClass;
-    if (nepalifyClass) {
-      targetClass = '.' + nepalifyClass;
+  setNepalifyClass: function (customClass) {
+    $('.' + nepalify.nepalifyClass).unbind('keypress');
+    if (customClass === undefined || customClass === '') {
+      nepalify.nepalifyClass = 'nepalify';
     } else {
-      targetClass = '.nepalify';
+      nepalify.nepalifyClass = customClass;
     }
+    nepalify.initialize();
+  },
+
+  initialize: function () {
     // Only on the selected classes
-    $(targetClass).keypress(function (event) {
+    $('.' + nepalify.nepalifyClass).keypress(function (event) {
       // Only on input fields and textareas
       if (event.target.type === 'text' || event.target.type === 'textarea') {
         var eventKey = event.which;
