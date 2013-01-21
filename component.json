@@ -2,7 +2,7 @@
   "author": "Suvash Thapaliya",
   "name": "Nepalify",
   "version": "0.1.0",
-  "main": "nepalify.js",
+  "main": "./nepalify.js",
   "dependencies": {
     "jquery": "~1.7.2"
   }
