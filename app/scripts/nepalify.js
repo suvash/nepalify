@@ -168,20 +168,20 @@ var nepalify = {
     $('.nepalify').keypress(function (event) {
       var eventKey = event.which;
       if (eventKey < 126 && eventKey > 32) {
+        event.preventDefault();
+        event.stopPropagation();
         var nepalifiedKey = nepalify.unicodify(event.which);
 
         var target = event.target;
 
-        var selectionStart = target.selectionStart;
-        var selectionEnd = target.selectionEnd;
+        var selectionTarget = nepalify.getInputSelection(target);
+        var selectionStart = selectionTarget.start;
+        var selectionEnd = selectionTarget.end;
 
-        if (target.setSelectionRange) {  //text fields
 
-          target.value =  target.value.substring(0, selectionStart) + nepalifiedKey + target.value.substring(selectionEnd);
-          target.setSelectionRange(selectionStart + nepalifiedKey.length,selectionStart + nepalifiedKey.length);
+        target.value =  target.value.substring(0, selectionStart) + nepalifiedKey + target.value.substring(selectionEnd);
+        target.setSelectionRange(selectionStart + nepalifiedKey.length, selectionStart + nepalifiedKey.length);
 
-        }
-        event.preventDefault();
       }
     });
 
