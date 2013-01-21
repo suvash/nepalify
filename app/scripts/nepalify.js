@@ -107,17 +107,19 @@ var nepalify = {
                                 ],
 
   // Return the unicode of the key passed ( else return the key itself )
-  RomanToNepaliUnicodeChar: function (keyCode, array)
+  romanToNepaliUnicodeChar: function (keyCode, array)
   {
     return array[keyCode - 32];
   },
 
-  // Wrapper function for the transliteration function
+  // Wrapper function for the keymap function
   unicodify: function (character)
   {
-    return nepalify.RomanToNepaliUnicodeChar(character, nepalify.unicodeRomanToNepaliMap);
+    return nepalify.romanToNepaliUnicodeChar(character, nepalify.unicodeRomanToNepaliMap);
   },
 
+  // Extracted from StackOverflow
+  // http://stackoverflow.com/questions/3622818/ies-document-selection-createrange-doesnt-include-leading-or-trailing-blank-li
   getInputSelection: function (el) {
     var start = 0, end = 0, normalizedValue, range,
     textInputRange, len, endRange;
@@ -164,24 +166,34 @@ var nepalify = {
     };
   },
 
-  initialize: function () {
-    $('.nepalify').keypress(function (event) {
-      var eventKey = event.which;
-      if (eventKey < 126 && eventKey > 32) {
-        event.preventDefault();
-        event.stopPropagation();
-        var nepalifiedKey = nepalify.unicodify(event.which);
+  initialize: function (nepalifyClass) {
+    var targetClass;
+    if (nepalifyClass) {
+      targetClass = '.' + nepalifyClass;
+    } else {
+      targetClass = '.nepalify';
+    }
+    // Only on the selected classes
+    $(targetClass).keypress(function (event) {
+      // Only on input fields and textareas
+      if (event.target.type === 'text' || event.target.type === 'textarea') {
+        var eventKey = event.which;
+        if (eventKey < 126 && eventKey > 32) {
+          event.preventDefault();
+          event.stopPropagation();
 
-        var target = event.target;
+          var target = event.target;
 
-        var selectionTarget = nepalify.getInputSelection(target);
-        var selectionStart = selectionTarget.start;
-        var selectionEnd = selectionTarget.end;
+          var selectionTarget = nepalify.getInputSelection(target);
+          var selectionStart = selectionTarget.start;
+          var selectionEnd = selectionTarget.end;
 
+          var nepalifiedKey = nepalify.unicodify(eventKey);
 
-        target.value =  target.value.substring(0, selectionStart) + nepalifiedKey + target.value.substring(selectionEnd);
-        target.setSelectionRange(selectionStart + nepalifiedKey.length, selectionStart + nepalifiedKey.length);
+          target.value =  target.value.substring(0, selectionStart) + nepalifiedKey + target.value.substring(selectionEnd);
+          target.setSelectionRange(selectionStart + nepalifiedKey.length, selectionStart + nepalifiedKey.length);
 
+        }
       }
     });
 
