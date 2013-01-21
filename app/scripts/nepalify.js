@@ -1,6 +1,6 @@
 'use strict';
 
-(function (nepalify) {
+(function (nepalify, jQuery) {
 
   // array to hold unicode values - maps unicode values with ascii indices
   /* --------------------------------------------------------------------------
@@ -172,7 +172,7 @@
 
   function initialize() {
     // Only on the selected classes
-    $('.' + nepalifyClass).keypress(function (event) {
+    jQuery('.' + nepalifyClass).keypress(function (event) {
       // Only on input fields and textareas
       if (event.target.type === 'text' || event.target.type === 'textarea') {
         var eventKey = event.which;
@@ -196,8 +196,8 @@
     });
   }
 
-  nepalify.setNepalifyClass = function(customClass) {
-    $('.' + nepalifyClass).unbind('keypress');
+  nepalify.setNepalifyClass = function (customClass) {
+    jQuery('.' + nepalifyClass).unbind('keypress');
     if (customClass === undefined || customClass === '') {
       nepalifyClass = 'nepalify';
     } else {
@@ -208,4 +208,4 @@
 
   initialize();
 
-})(window.nepalify = window.nepalify || {});
+})(window.nepalify = window.nepalify || {}, window.jQuery);
