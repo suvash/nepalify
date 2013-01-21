@@ -5,6 +5,10 @@ A Javascript library that adds instant support for (Romanized) Nepali(नेप�
 
 This has been tested to work on ancient browsers such as IE6 and above. Please let me know if you run into a bug by [opening an issue here](https://github.com/suvash/nepalify/issues).
 
+## Live Demo
+
+For a live demo of the library, please visit [the showcase page](http://suvashthapaliya.com/showcase/practice-romanized-nepali-with-nepalify-js/).
+
 ## Dependencies
 
 This library depends on jQuery. Please get the latest version of jQuery before you intend to use Nepalify.
@@ -45,3 +49,4 @@ Load the library after jQuery. Make sure that the library is loaded only after a
 ##Suggestions are always welcome.
 
 Feel free to send me one by [opening an issue here](https://github.com/suvash/nepalify/issues).
+
