@@ -2,7 +2,7 @@
 
 (function eventmap(){
 
-  $(document).keypress(function(event) {
+  $(".nepalify").keypress(function(event) {
     // Check if its a textinput and the right class applied
     var key = nepalify.unicodify(event.which);
     // console.log(key);
