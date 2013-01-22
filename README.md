@@ -1,4 +1,4 @@
-# Nepalify (for browsers IE6+ and up)
+# Nepalify (tested on browsers IE6+, Firefox 3+, Chrome 14+, Safari 4+, Opera 10+ )
 
 
 A Javascript library that adds instant support for (Romanized) Nepali(नेपाली) input on HTML `<input>` and `<textarea>` with almost zero setup effort.
