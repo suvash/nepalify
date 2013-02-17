@@ -46,6 +46,28 @@ Load the library after jQuery. Make sure that the library is loaded only after a
 
 ### That's it. The input fields are all set to using (Romanized) Nepali(नेपाली) input.
 
+## API (for additional options)
+
+### `nepalify.setNepalifyClass(className)`
+
+Allows setting custom CSS class to be processes by nepalify.
+
+- `className` has to be a string that is a CSS class attached to the required textarea or input element.
+
+
+### `nepalify.toggle()`
+
+Allows toggling the nepalify-cation on and off.
+
+
+## Release Notes
+
+### v 0.3.0
+- Adds public method `toggle()` method to switch the functionality on and off.
+
+### v 0.2.0
+- Beta release of nepalify
+
 ##Suggestions are always welcome.
 
 Feel free to send me one by [opening an issue here](https://github.com/suvash/nepalify/issues).
