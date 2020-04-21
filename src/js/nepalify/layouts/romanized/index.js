@@ -1,4 +1,4 @@
-const table = {
+const keyToNep = {
   "!": "!",
   "'": "'",
   "#": "#",
@@ -95,14 +95,18 @@ const table = {
   "~": "़",
 };
 
+function formatKey(key) {
+  return keyToNep[key];
+}
+
 function format(text) {
-  let result = Array.from(text, c => table[c]).join('');
-  return result;
+  return Array.from(text, c => formatKey(c)).join('');
 }
 
 var layout = {
-    name: "romanized",
-    format: format
+  name: "romanized",
+  format: format,
+  formatKey: formatKey,
 }
 
 export default layout
