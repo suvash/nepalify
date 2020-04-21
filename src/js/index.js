@@ -1,3 +1,2 @@
-import sum from './sum.js';
+import nepalify from './nepalify';
 
-console.log(sum(2, 5));
