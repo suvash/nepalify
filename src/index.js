@@ -66,9 +66,9 @@ function attachToId(dirtyIdSelector, dirtyOptions) {
 
 }
 
-var nepalify = {
+const nepalify = {
   format: format,
-  attachToId: attachToId,
+  attachToId: attachToId
 }
 
 export default nepalify

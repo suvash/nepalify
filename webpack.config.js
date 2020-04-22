@@ -1,9 +1,22 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  devtool: 'source-map',
+  mode: 'development',
 
-  entry: './src/js/index.js',
+  devtool: 'source-map',
+  optimization: {
+    runtimeChunk: true
+  },
+
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'nepalify.js',
+    library: 'nepalify',
+    libraryExport: 'default',
+    libraryTarget: 'umd'
+  },
 
   module: {
     rules: [
@@ -21,17 +34,12 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/html/index.html'
+      inject: false,
+      template: './example/index.html'
     })
   ],
 
-  output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-
   devServer: {
-    contentBase: './dist'
+    contentBase: path.resolve(__dirname, 'dist')
   }
 };
