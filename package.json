@@ -36,6 +36,7 @@
     "@babel/preset-env": "^7.9.5",
     "babel-loader": "^8.1.0",
     "browserslist": "^4.12.0",
+    "core-js": "^3.6.5",
     "html-webpack-plugin": "^4.2.0",
     "npm-check": "^5.9.2",
     "npm-run-all": "^4.1.5",
@@ -46,11 +47,23 @@
     "webpack-merge": "^4.2.2"
   },
   "browserslist": [
-   "cover 99.9% in NE"
+    "cover 99.5%",
+    "ie 11",
+    "ie 10",
+    "ie 9"
   ],
   "babel": {
     "presets": [
-      "@babel/preset-env"
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": {
+            "version": 3,
+            "proposals": true
+          }
+        }
+      ]
     ]
   }
 }
