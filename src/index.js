@@ -12,25 +12,25 @@ function format(dirtyStr, dirtyOptions) {
 }
 
 function wrapHandlerwithLayout(layout) {
-  function _valid_target(target) {
+  function validTarget(target) {
     return target.type === "text" || target.type === "textarea";
   }
 
   const handler = function handleKeypress(event) {
-    if (_valid_target(event.target)) {
-      let formattedKey = layout.formatKey(event.key);
+    if (validTarget(event.target)) {
+      const formattedKey = layout.formatKey(event.key);
       if (formattedKey) {
         event.preventDefault();
         event.stopPropagation();
 
-        let selectionStart = event.target.selectionStart;
-        let selectionEnd = event.target.selectionEnd;
+        const selectionStart = event.target.selectionStart;
+        const selectionEnd = event.target.selectionEnd;
 
-        let beforeSelection = event.target.value.substring(0, selectionStart);
-        let afterSelection = event.target.value.substring(selectionEnd);
+        const beforeSelection = event.target.value.substring(0, selectionStart);
+        const afterSelection = event.target.value.substring(selectionEnd);
 
         event.target.value = beforeSelection + formattedKey + afterSelection;
-        let newSelectionPos = selectionStart + formattedKey.length;
+        const newSelectionPos = selectionStart + formattedKey.length;
 
         event.target.setSelectionRange(newSelectionPos, newSelectionPos);
       }
@@ -68,7 +68,7 @@ function interceptAtId(dirtyIdSelector, dirtyOptions) {
     enabled = false;
   }
 
-  function is_enabled() {
+  function isEnabled() {
     return enabled;
   }
 
@@ -76,7 +76,7 @@ function interceptAtId(dirtyIdSelector, dirtyOptions) {
     el: el,
     enable: enable,
     disable: disable,
-    is_enabled: is_enabled,
+    isEnabled: isEnabled,
   };
 }
 

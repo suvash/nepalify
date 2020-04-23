@@ -89,7 +89,7 @@ function format(text) {
   return Array.from(text, (c) => formatKey(c) || c).join("");
 }
 
-var layout = {
+const layout = {
   name: "romanized",
   format: format,
   formatKey: formatKey,
