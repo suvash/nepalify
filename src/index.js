@@ -1,4 +1,6 @@
-import { romanized as defaultLayout } from './layouts';
+import layouts from './layouts';
+
+const defaultLayout = layouts.romanized;
 
 function format(dirtyStr, dirtyOptions) {
     const str = String(dirtyStr);
@@ -9,18 +11,15 @@ function format(dirtyStr, dirtyOptions) {
     return layout.format(str);
 }
 
-function attachToId(dirtyIdSelector, dirtyOptions) {
-  const selector = String(dirtyIdSelector);
-  const options = dirtyOptions || {};
+function wrapHandlerwithLayout(layout) {
 
-  const layout = options.layout || defaultLayout;
-  const el = document.getElementById(selector);
+  function _valid_target(target) {
+    return (target.type === 'text' || target.type === 'textarea');
+  }
 
-  var enabled = false;
-
-  function handleKeypress(event) {
+  const handler = function handleKeypress(event) {
     if(_valid_target(event.target)) {
-      let formattedKey = layout.formatKey(event.key);// use .key instead of deprecated .which
+      let formattedKey = layout.formatKey(event.key);
       if(formattedKey) {
         event.preventDefault();
         event.stopPropagation();
@@ -39,17 +38,34 @@ function attachToId(dirtyIdSelector, dirtyOptions) {
     }
   }
 
-  function _valid_target(target) {
-    return (target.type === 'text' || target.type === 'textarea');
+  return handler;
+}
+
+function interceptAtId(dirtyIdSelector, dirtyOptions) {
+  const defaultOptions = {
+    layout: defaultLayout,
+    enable: true
+  };
+
+  const options = {...defaultOptions, ...dirtyOptions };
+  const selector = String(dirtyIdSelector);
+  const el = document.getElementById(selector);
+
+  var layout = options.layout;
+  var handler = wrapHandlerwithLayout(layout);
+  var enabled = false;
+
+  if(options.enable){
+    enable()
   }
 
   function enable() {
-    el.addEventListener('keypress', handleKeypress);
+    el.addEventListener('keypress', handler);
     enabled = true;
   }
 
   function disable() {
-    el.removeEventListener('keypress', handleKeypress);
+    el.removeEventListener('keypress', handler);
     enabled = false;
   }
 
@@ -63,12 +79,12 @@ function attachToId(dirtyIdSelector, dirtyOptions) {
     disable: disable,
     is_enabled: is_enabled
   }
-
 }
 
 const nepalify = {
+  layouts: layouts,
   format: format,
-  attachToId: attachToId
+  interceptAtId: interceptAtId
 }
 
 export default nepalify

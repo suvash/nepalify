@@ -9,35 +9,31 @@
       <div id="app">
         <input id="some-element" />
         <textarea id="some-other-element"></textarea>
+        <textarea id="disabled-start-element"></textarea>
       </div>
     </div>
     <% for (var f in htmlWebpackPlugin.files.js) { %>
     <script src="<%= htmlWebpackPlugin.files.js[f] %>"></script>
     <% } %>
     <script>
-      let text = "kiMkr/tv/ybimuX/ haha";
-      let ftext = nepalify.format(text);
-      let fftext = nepalify.format(text, {layout: romanized})
-      
+      var romanized = nepalify.layouts.romanized;
+
+      var text = "kiMkr/tv/ybimuX/ haha";
+      var ftext = nepalify.format(text);
+      var fftext = nepalify.format(text, {layout: romanized});
+
       console.log(text);
       console.log(ftext);
       console.log(fftext);
-      
-      let nep1 = nepalify.attachToId("some-element");
-      let nep2 = nepalify.attachToId("some-other-element", {layout: romanized});
-      console.log(nep1.is_enabled());
-      console.log(nep2.is_enabled());
-      
-      nep1.enable();
-      nep2.enable();
-      console.log(nep1.is_enabled());
-      console.log(nep2.is_enabled());
-      
-      // nep1.disable();
-      // nep2.disable();
-      // console.log(nep1.is_enabled());
-      // console.log(nep2.is_enabled());
-      
+
+      var nep1 = nepalify.interceptAtId("some-element");
+      var nep2 = nepalify.interceptAtId("some-other-element", {layout: romanized});
+      var nep3 = nepalify.interceptAtId("disabled-start-element", {enable: false});
+      console.log("nep1 enabled :" + nep1.is_enabled());
+      console.log("nep2 enabled :" + nep2.is_enabled());
+      console.log("nep3 enabled :" + nep3.is_enabled());
+
+
     </script>
 
   </body>
