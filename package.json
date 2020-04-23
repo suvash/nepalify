@@ -27,6 +27,15 @@
     "type": "git",
     "url": "git+https://github.com/suvash/nepalify.git"
   },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "index.js",
+    "src/",
+    "cjs/",
+    "umd/"
+  ],
   "keywords": [
     "nepali",
     "romanized",
