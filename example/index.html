@@ -20,21 +20,22 @@
 
       var text = "kiMkr/tv/ybimuX/ haha";
       var ftext = nepalify.format(text);
-      var fftext = nepalify.format(text, {layout: romanized});
+      var fftext = nepalify.format(text, { layout: romanized });
 
       console.log(text);
       console.log(ftext);
       console.log(fftext);
 
       var nep1 = nepalify.interceptElementById("some-element");
-      var nep2 = nepalify.interceptElementById("some-other-element", {layout: romanized});
-      var nep3 = nepalify.interceptElementById("disabled-start-element", {enable: false});
+      var nep2 = nepalify.interceptElementById("some-other-element", {
+        layout: romanized,
+      });
+      var nep3 = nepalify.interceptElementById("disabled-start-element", {
+        enable: false,
+      });
       console.log("nep1 enabled :" + nep1.isEnabled());
       console.log("nep2 enabled :" + nep2.isEnabled());
       console.log("nep3 enabled :" + nep3.isEnabled());
-
-
     </script>
-
   </body>
 </html>
