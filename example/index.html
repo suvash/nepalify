@@ -26,12 +26,12 @@
       console.log(ftext);
       console.log(fftext);
 
-      var nep1 = nepalify.interceptAtId("some-element");
-      var nep2 = nepalify.interceptAtId("some-other-element", {layout: romanized});
-      var nep3 = nepalify.interceptAtId("disabled-start-element", {enable: false});
-      console.log("nep1 enabled :" + nep1.is_enabled());
-      console.log("nep2 enabled :" + nep2.is_enabled());
-      console.log("nep3 enabled :" + nep3.is_enabled());
+      var nep1 = nepalify.interceptElementById("some-element");
+      var nep2 = nepalify.interceptElementById("some-other-element", {layout: romanized});
+      var nep3 = nepalify.interceptElementById("disabled-start-element", {enable: false});
+      console.log("nep1 enabled :" + nep1.isEnabled());
+      console.log("nep2 enabled :" + nep2.isEnabled());
+      console.log("nep3 enabled :" + nep3.isEnabled());
 
 
     </script>
