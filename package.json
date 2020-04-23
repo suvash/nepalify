@@ -4,6 +4,7 @@
   "description": "A Javascript library that adds instant support for Nepali(नेपाली) input on HTML <input> and <textarea>.",
   "main": "index.js",
   "module": "src/index.js",
+  "unpkg": "umd/nepalify.production.min.js",
   "scripts": {
     "clean": "rimraf umd cjs",
     "deps": "npm-check --update",
