@@ -5,9 +5,6 @@ module.exports = {
   mode: 'development',
 
   devtool: 'source-map',
-  optimization: {
-    runtimeChunk: true
-  },
 
   entry: './src/index.js',
   output: {
@@ -15,7 +12,8 @@ module.exports = {
     filename: 'nepalify.js',
     library: 'nepalify',
     libraryExport: 'default',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
 
   module: {
