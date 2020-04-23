@@ -40,7 +40,7 @@ function wrapHandlerwithLayout(layout) {
   return handler;
 }
 
-function interceptAtId(dirtyIdSelector, dirtyOptions) {
+function interceptElementById(dirtyIdSelector, dirtyOptions) {
   const defaultOptions = {
     layout: defaultLayout,
     enable: true,
@@ -83,7 +83,7 @@ function interceptAtId(dirtyIdSelector, dirtyOptions) {
 const nepalify = {
   layouts: layouts,
   format: format,
-  interceptAtId: interceptAtId,
+  interceptElementById: interceptElementById,
 };
 
 export default nepalify;
