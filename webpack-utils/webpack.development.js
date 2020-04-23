@@ -9,7 +9,7 @@ module.exports = (name, mode, target) => {
 
     output: {
       path: path.join(__dirname, "../", outDir),
-      filename: `${name}.js`,
+      filename: `${name}.${mode}.js`,
       library: `${name}`,
       libraryExport: "default",
       libraryTarget: target,

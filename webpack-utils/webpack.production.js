@@ -8,7 +8,7 @@ module.exports = (name, mode, target) => {
 
     output: {
       path: path.join(__dirname, "../", outDir),
-      filename: `${name}.min.js`,
+      filename: `${name}.${mode}.min.js`,
       library: `${name}`,
       libraryExport: "default",
       libraryTarget: target,
