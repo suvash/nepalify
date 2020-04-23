@@ -13,7 +13,8 @@ https://www.thapaliya.com/en/writings/practice-romanized-nepali-unicode-in-your-
 
 ## Installation
 
-This package can be consumed directly via Unpkg CDN into your pages, or installed via NPM to include in your application bundle.
+Nepalify is available in CommonJS2, ES6 as well as UMD formats for all different needs.  
+It can be consumed directly via Unpkg CDN into your pages, or installed via NPM to include in your application bundle.
 
 ### Unpkg CDN installation
 
