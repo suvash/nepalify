@@ -8,7 +8,8 @@ This library has been tested to work most modern browsers, the oldest ones being
 
 ## Live Demo / Playground
 
-TBD
+Visit the following link and starting typing right away.  
+https://www.thapaliya.com/en/writings/practice-romanized-nepali-unicode-in-your-browser/
 
 ## Installation
 
