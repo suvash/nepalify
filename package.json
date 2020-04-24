@@ -10,6 +10,7 @@
     "deps": "npm-check --update",
     "supported": "browserslist",
     "webpack": "webpack",
+    "np": "np",
     "webpack-dev-server": "webpack-dev-server",
     "dev:server": "npm run webpack-dev-server -- --env.mode development --env.target=umd",
     "dev": "npm-run-all -s clean dev:server",
@@ -21,7 +22,7 @@
     "format:pretty": "prettier --write src/",
     "format:eslint": "eslint --fix src/**/*.js",
     "format": "npm-run-all --sequential format:*",
-    "release": "np",
+    "release": "npm-run-all --sequential build np",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
