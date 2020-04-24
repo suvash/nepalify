@@ -94,6 +94,14 @@ console.log(nepalify.format(text));
 //किंकर्तव्यबिमुढ्
 ```
 
+## Examples
+
+I've included some links here where this library has been used. If you've used Nepalify in a project and would like to include it in this list, feel free to reach out or open an issue.
+
+### [Samajik/सामाजिक](http://samajik.glitch.me/)
+
+You can view the source at https://glitch.com/edit/#!/samajik
+
 
 ## Changelog
 
