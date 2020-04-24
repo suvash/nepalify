@@ -37,6 +37,12 @@ Also, add an input/textarea element with a unique id, if you want to follow alon
 <textarea id="unique-textarea"></textarea>
 ```
 
+Optionally the following attributes can be used on the elements above.
+
+```html
+autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+```
+
 ### Via NPM
 
 The library is available on NPM as `nepalify`.
