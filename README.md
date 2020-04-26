@@ -8,8 +8,14 @@ This library has been tested to work most modern browsers, the oldest ones being
 
 ## Live Demo / Playground
 
-Visit the following link and starting typing right away.  
-https://www.thapaliya.com/en/writings/practice-romanized-nepali-unicode-in-your-browser/
+Official Demo : https://www.thapaliya.com/en/writings/practice-romanized-nepali-unicode-in-your-browser/
+
+### More Examples
+
+If you've used Nepalify in a project and would like to include it in this list, feel free to reach out or open an issue.
+
+- [Samajik/सामाजिक](http://samajik.glitch.me/): View the source at https://glitch.com/edit/#!/samajik
+
 
 ## Installation
 
@@ -27,7 +33,7 @@ Via [Unpkg](https://unpkg.com/), you can directly use the bare url for the lates
 Or, include the full fixed url.
 
 ```html
-<script src="unpkg.com/nepalify@0.4.0/umd/nepalify.production.min.js" />
+<script src="https://unpkg.com/nepalify@0.4.0/umd/nepalify.production.min.js" />
 ```
 
 Also, add an input/textarea element with a unique id, if you want to follow along.
@@ -93,15 +99,6 @@ var text = "kiMkr/tv/ybimuX/";
 console.log(nepalify.format(text));
 //किंकर्तव्यबिमुढ्
 ```
-
-## Examples
-
-I've included some links here where this library has been used. If you've used Nepalify in a project and would like to include it in this list, feel free to reach out or open an issue.
-
-### [Samajik/सामाजिक](http://samajik.glitch.me/)
-
-You can view the source at https://glitch.com/edit/#!/samajik
-
 
 ## Changelog
 
