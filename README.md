@@ -56,6 +56,15 @@ The library is available on NPM as `nepalify`.
 ```bash
 npm install nepalify
 ```
+Afterwards, you can use CommonJS imports
+```javascript
+const nepalify = require('nepalify');
+```
+
+Or, you can use ES6 imports
+```javascript
+import nepalify from "nepalify";
+```
 
 ## Documentation
 
