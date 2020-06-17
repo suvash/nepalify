@@ -10,7 +10,7 @@
     "deps": "npm-check --update",
     "supported": "browserslist",
     "webpack": "webpack",
-    "np": "np",
+    "np": "np --any-branch",
     "webpack-dev-server": "webpack-dev-server",
     "dev:server": "npm run webpack-dev-server -- --env.mode development --env.target=umd",
     "dev": "npm-run-all -s clean dev:server",
