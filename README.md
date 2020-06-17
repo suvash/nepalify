@@ -111,7 +111,7 @@ console.log(nepalify.format(text));
 
 ## Changelog
 
-Please check the [CHANGELOG.md](https://github.com/suvash/nepalify/blob/master/CHANGELOG.md) for details.
+Please check the [CHANGELOG.md](https://github.com/suvash/nepalify/blob/main/CHANGELOG.md) for details.
 
 
 ## Legacy version
@@ -122,4 +122,4 @@ The legacy version of this package supported ancient browsers such as IE6, used 
 
 Copyright © 2020, Suvash Thapaliya
 
-Distributed under the [ISC License](https://github.com/suvash/nepalify/blob/master/LICENSE).
+Distributed under the [ISC License](https://github.com/suvash/nepalify/blob/main/LICENSE).
