@@ -33,7 +33,7 @@ Via [Unpkg](https://unpkg.com/), you can directly use the bare url for the lates
 Or, include the full fixed url.
 
 ```html
-<script src="https://unpkg.com/nepalify@0.4.0/umd/nepalify.production.min.js" />
+<script src="https://unpkg.com/nepalify@0.4.2/umd/nepalify.production.min.js" />
 ```
 
 Also, add an input/textarea element with a unique id, if you want to follow along.
