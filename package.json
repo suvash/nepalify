@@ -1,6 +1,6 @@
 {
   "name": "nepalify",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A Javascript library that adds instant support for Nepali(नेपाली) input on HTML <input> and <textarea>.",
   "main": "index.js",
   "module": "src/index.js",
