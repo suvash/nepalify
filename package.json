@@ -24,7 +24,8 @@
     "format:eslint": "eslint --fix src/**/*.js",
     "format": "npm-run-all --sequential format:*",
     "release": "npm-run-all --sequential build np",
-    "test": "echo \"Error: no test specified\""
+    "test": "mocha",
+    "test:watch": "mocha --watch"
   },
   "repository": {
     "type": "git",
