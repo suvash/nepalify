@@ -24,6 +24,7 @@
     "format:eslint": "eslint --fix src/**/*.js",
     "format": "npm-run-all --sequential format:*",
     "release": "npm-run-all --sequential build np",
+    "release:local": "npm link nepalify",
     "test": "mocha",
     "test:watch": "mocha --watch"
   },

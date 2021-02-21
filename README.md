@@ -108,7 +108,11 @@ var text = "kiMkr/tv/ybimuX/";
 console.log(nepalify.format(text));
 //किंकर्तव्यबिमुढ्
 ```
-
+## Build locally and test
+Steps for building and testing locally:
+  1. Run `npm run build`, which will build `cjs`, `umd`, and `example`
+  2. Run `npm run release:local`, which will install package locally inside `node_modules`.
+  3. Run `npm run test` or `npm run test:watch` to run unittests.
 ## Changelog
 
 Please check the [CHANGELOG.md](https://github.com/suvash/nepalify/blob/main/CHANGELOG.md) for details.
