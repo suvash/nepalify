@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+- Setup local testing
+- Added tests for layouts and romanized module
 
 ## [0.4.2] - 2021-02-15
 - Update all npm dependencies except webpack
