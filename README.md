@@ -108,11 +108,18 @@ var text = "kiMkr/tv/ybimuX/";
 console.log(nepalify.format(text));
 //किंकर्तव्यबिमुढ्
 ```
-## Build locally and test
-Steps for building and testing locally:
-  1. Run `npm run build`, which will build `cjs`, `umd`, and `example`
-  2. Run `npm run release:local`, which will install package locally inside `node_modules`.
-  3. Run `npm run test` or `npm run test:watch` to run unittests.
+
+## Development
+
+While the library is intended to run in the browser, you'll need to have `node` (and `npm`) installed locally for development.
+
+Most of the npm targets are explained in the `package.json` file itself. The following flow is preferred for contribution.
+
+- `npm install` for installing all the dependencies.
+- `npm run test` for running the test suite.
+- `npm run dev` to run a local server, serves an html page with the library injected for manual testing.
+- `npm run format` to format all the changes before making a PR.
+
 ## Changelog
 
 Please check the [CHANGELOG.md](https://github.com/suvash/nepalify/blob/main/CHANGELOG.md) for details.
