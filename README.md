@@ -124,6 +124,9 @@ Most of the npm targets are explained in the `package.json` file itself. The fol
 
 Please check the [CHANGELOG.md](https://github.com/suvash/nepalify/blob/main/CHANGELOG.md) for details.
 
+## Contributors
+
+Please check the [contribution graph](https://github.com/suvash/nepalify/graphs/contributors) graph for now.
 
 ## Legacy version
 
