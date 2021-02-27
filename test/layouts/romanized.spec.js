@@ -1,32 +1,24 @@
-import assert from 'assert';
-import romanized from '../../src/layouts/romanized';
-import { testKeys } from '../helper.js';
+import assert from "assert";
+import romanized from "../../src/layouts/romanized";
+import { testKeys } from "../helper.js";
+import { expectedKeys } from "./romanized.helper.js";
 
-describe('romanized', () => {
-  describe('formatKey()', () => {
-    it('should return corresponding Nepali character.', () => {
-      const expected = ["\u200C", "।", "्", "०", "१", "२", "३", "४", "५", "६", "७", "८", "९", "ङ", "\u200D",
-        "॥", "?", "आ", "भ", "च", "ध", "ै", "ऊ", "घ", "अ", "ी", "झ", "ख", "ळ", "ं", "ण", "ओ", "फ", "ठ", "ृ",
-        "श", "थ", "ू", "ँ", "औ", "ढ", "ञ", "ऋ", "इ", "ॐ", "ए", "^", " ", "ऽ", "ा", "ब", "छ", "द", "े", "उ",
-        "ग", "ह", "ि", "ज", "क", "ल", "म", "न", "ो", "प", "ट", "र", "स", "त", "ु", "व", "ौ", "ड",
-        "य", "ष", "ई", "ः", "ऐ", "़"];
-
-      testKeys.every((element, index, array) => {
-        assert.strictEqual(romanized.formatKey(element), expected[index]);
-      });
+describe("romanized", () => {
+  describe("formatKey()", () => {
+    it("should return corresponding romanized Nepali character.", () => {
+      const receivedKeys = testKeys.map((key) => romanized.formatKey(key));
+      assert.deepEqual(expectedKeys, receivedKeys);
     });
 
-    it('should return undefined if it fails to map', () => {
+    it("should return undefined if no mapping exists", () => {
+      const asciiCodes = [...Array(255 + 1).keys()];
+      const asciiKeys = asciiCodes.map((key) => String.fromCharCode(key));
+      const filteredKeys = asciiKeys.filter((key) => testKeys.indexOf(key) < 0);
 
-      for (var i = 0; i < 127; i++) {
-        let inputStr = String.fromCharCode(i);
-        let found = testKeys.find(element => element == inputStr);
+      const receivedKeys = filteredKeys.map((key) => romanized.formatKey(key));
+      const expectedKeys = [...Array(receivedKeys.length)];
 
-        if (!found) {
-          assert.strictEqual(romanized.formatKey(inputStr), undefined);
-        }
-      }
-
+      assert.deepEqual(expectedKeys, receivedKeys);
     });
   });
 });
