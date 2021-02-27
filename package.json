@@ -24,8 +24,9 @@
     "format:eslint": "eslint --fix src/**/*.js",
     "format": "npm-run-all --sequential format:*",
     "release": "npm-run-all --sequential build np",
-    "test": "mocha",
-    "test:watch": "mocha --watch"
+    "mocha": "mocha --recursive --require esm",
+    "test": "npm run mocha",
+    "test:watch": "npm run mocha -- --watch"
   },
   "repository": {
     "type": "git",
@@ -67,6 +68,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-standard": "^5.0.0",
+    "esm": "^3.2.25",
     "html-webpack-plugin": "^4.3.0",
     "mocha": "^8.3.0",
     "np": "^7.4.0",
