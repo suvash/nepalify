@@ -11,8 +11,7 @@ describe("romanized", () => {
     });
 
     it("should return undefined if no mapping exists", () => {
-      const asciiCodes = [...Array(255 + 1).keys()];
-      const asciiKeys = asciiCodes.map((key) => String.fromCharCode(key));
+      const asciiKeys = [...Array(256).keys()].map((key) => String.fromCharCode(key));
       const filteredKeys = asciiKeys.filter((key) => testKeys.indexOf(key) < 0);
 
       const receivedKeys = filteredKeys.map((key) => romanized.formatKey(key));
