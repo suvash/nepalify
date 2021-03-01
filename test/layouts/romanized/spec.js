@@ -1,7 +1,7 @@
 import { expect } from "chai";
-import romanized from "../../src/layouts/romanized";
-import { testKeys } from "../helper.js";
-import { expectedKeys } from "./romanized.helper.js";
+import romanized from "../../../src/layouts/romanized";
+import testKeys from "./helpers/test_keys.js";
+import expectedKeys from "./helpers/expected_keys.js";
 
 describe("romanized", () => {
   describe("formatKey()", () => {
@@ -11,7 +11,9 @@ describe("romanized", () => {
     });
 
     it("should return undefined if no mapping exists", () => {
-      const asciiKeys = [...Array(256).keys()].map((key) => String.fromCharCode(key));
+      const asciiKeys = [...Array(256).keys()].map((key) =>
+        String.fromCharCode(key)
+      );
       const filteredKeys = asciiKeys.filter((key) => testKeys.indexOf(key) < 0);
 
       const receivedKeys = filteredKeys.map((key) => romanized.formatKey(key));
