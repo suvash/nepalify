@@ -115,13 +115,8 @@ function formatKey(key) {
   return keyToNep[key];
 }
 
-function format(text) {
-  return Array.from(text, (c) => formatKey(c) || c).join("");
-}
-
 const layout = {
   name: "traditional",
-  format: format,
   formatKey: formatKey,
 };
 

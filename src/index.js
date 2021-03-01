@@ -3,12 +3,11 @@ import layouts from "./layouts";
 const defaultLayout = layouts.romanized;
 
 function format(dirtyStr, dirtyOptions) {
-  const str = String(dirtyStr);
+  const text = String(dirtyStr);
   const options = dirtyOptions || {};
 
   const layout = options.layout || defaultLayout;
-
-  return layout.format(str);
+  return Array.from(text, (c) => layout.formatKey(c) || c).join("");
 }
 
 function wrapHandlerwithLayout(layout) {
