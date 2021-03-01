@@ -7,9 +7,16 @@
     <div>
       <h1>Nepalify Test page</h1>
       <div id="app">
-        <input id="some-element" />
-        <textarea id="some-other-element"></textarea>
-        <textarea id="disabled-start-element"></textarea>
+	<div id="romanized">
+          <input id="rom-input-1" />
+          <textarea id="rom-text-1"></textarea>
+          <textarea id="rom-text-2"></textarea>
+	</div>
+	<div id="traditional">
+          <input id="trad-input-1" />
+          <textarea id="trad-text-1"></textarea>
+          <textarea id="trad-text-2"></textarea>
+	</div>
       </div>
     </div>
     <% for (var f in htmlWebpackPlugin.files.js) { %>
@@ -17,25 +24,45 @@
     <% } %>
     <script>
       var romanized = nepalify.layouts.romanized;
+      var traditional = nepalify.layouts.traditional;
 
-      var text = "kiMkr/tv/ybimuX/ haha";
-      var ftext = nepalify.format(text);
-      var fftext = nepalify.format(text, { layout: romanized });
+      var rom_text = "kiMkr/tv/ybimuX/ haha";
+      var rom_ftext = nepalify.format(rom_text, { layout: romanized });
+      console.log(rom_text);
+      console.log(rom_ftext);
 
-      console.log(text);
-      console.log(ftext);
-      console.log(fftext);
+      var default_ftext = nepalify.format(rom_text);
+      console.log(default_ftext);
 
-      var nep1 = nepalify.interceptElementById("some-element");
-      var nep2 = nepalify.interceptElementById("some-other-element", {
+      var trad_text = "asdfghjkl";
+      var trad_ftext = nepalify.format(trad_text, { layout: traditional });
+      console.log(trad_text);
+      console.log(trad_ftext);
+
+      var rom_nep1 = nepalify.interceptElementById("rom-input-1");
+      var rom_nep2 = nepalify.interceptElementById("rom-text-1", {
         layout: romanized,
       });
-      var nep3 = nepalify.interceptElementById("disabled-start-element", {
+      var rom_nep3 = nepalify.interceptElementById("rom-text-2", {
         enable: false,
       });
-      console.log("nep1 enabled :" + nep1.isEnabled());
-      console.log("nep2 enabled :" + nep2.isEnabled());
-      console.log("nep3 enabled :" + nep3.isEnabled());
+      console.log("rom_nep1 enabled :" + rom_nep1.isEnabled());
+      console.log("rom_nep2 enabled :" + rom_nep2.isEnabled());
+      console.log("rom_nep3 enabled :" + rom_nep3.isEnabled());
+
+      var trad_nep1 = nepalify.interceptElementById("trad-input-1", {
+        layout: traditional,
+      });
+      var trad_nep2 = nepalify.interceptElementById("trad-text-1", {
+        layout: traditional,
+      });
+      var trad_nep3 = nepalify.interceptElementById("trad-text-2", {
+        layout: traditional,
+        enable: false,
+      });
+      console.log("trad_nep1 enabled :" + trad_nep1.isEnabled());
+      console.log("trad_nep2 enabled :" + trad_nep2.isEnabled());
+      console.log("trad_nep3 enabled :" + trad_nep3.isEnabled());
     </script>
   </body>
 </html>
