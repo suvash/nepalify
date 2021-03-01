@@ -14,7 +14,7 @@ describe("romanized", () => {
       const asciiKeys = [...Array(256).keys()].map((key) =>
         String.fromCharCode(key)
       );
-      const filteredKeys = asciiKeys.filter((key) => testKeys.indexOf(key) < 0);
+      const filteredKeys = asciiKeys.filter((key) => !testKeys.includes(key));
 
       const receivedKeys = filteredKeys.map((key) => romanized.formatKey(key));
       const expectedKeys = [...Array(receivedKeys.length)];
