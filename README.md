@@ -1,5 +1,7 @@
 # Nepalify
 
+[![Build Status](https://github.com/suvash/nepalify/actions/workflows/.github/workflows/run-tests.yml/badge.svg)](https://github.com/suvash/nepalify/actions/workflows/run-tests.yml)
+
 A JavaScript library that adds support for typing Unicode Nepali(नेपाली) input on HTML `<input>` and `<textarea>` (using both traditional and romanized layouts).
 
 ## Supported Browsers
