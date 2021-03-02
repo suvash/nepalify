@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+
+## [0.5.0] - 2021-03-02
 - Setup local testing
 - Added tests for layouts and romanized module
 - Added 'traditional' layout with tests
@@ -24,7 +26,8 @@ All notable changes to this project will be documented in this file. This change
 - Lint and format with Prettier and ESLint
 - Support UMD, CommonJS and ES6 modules
 
-[Unreleased]: https://github.com/suvash/nepalify/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/suvash/nepalify/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/suvash/nepalify/compare/v0.4.2...v0.5.0
 [0.4.2]: https://github.com/suvash/nepalify/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/suvash/nepalify/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/suvash/nepalify/compare/ef47bce9a5446c1dafde4d2f41d1640caf845cc3...v0.4.0
