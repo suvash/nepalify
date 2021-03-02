@@ -1,8 +1,8 @@
-import { fetchLayout, defaultLayoutName } from "./layouts";
+import { fetchLayout, defaultLayout } from "./layouts";
 
 function format(dirtyStr, dirtyOptions) {
   const defaultOptions = {
-    layout: defaultLayoutName,
+    layout: defaultLayout,
   };
   const text = String(dirtyStr);
   const options = { ...defaultOptions, ...dirtyOptions };
@@ -42,7 +42,7 @@ function wrapHandlerwithLayout(layout) {
 
 function interceptElementById(dirtyIdSelector, dirtyOptions) {
   const defaultOptions = {
-    layout: defaultLayoutName,
+    layout: defaultLayout,
     enable: true,
   };
 

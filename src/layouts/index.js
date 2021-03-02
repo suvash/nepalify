@@ -6,7 +6,7 @@ const layoutStore = {
   traditional: traditional,
 };
 
-export const defaultLayoutName = "romanized";
+export const defaultLayout = "romanized";
 
 export function availableLayouts() {
   return Object.keys(layoutStore);

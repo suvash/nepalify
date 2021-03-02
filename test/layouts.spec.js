@@ -3,13 +3,13 @@ import {
   fetchLayout,
   isValidLayout,
   availableLayouts,
-  defaultLayoutName,
+  defaultLayout,
 } from "../src/layouts";
 
 describe("layouts", () => {
-  describe("defaultLayoutName", () => {
+  describe("defaultLayout", () => {
     it("should be defined", () => {
-      expect(defaultLayoutName).to.equal("romanized");
+      expect(defaultLayout).to.equal("romanized");
     });
   });
 
