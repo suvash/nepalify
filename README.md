@@ -1,6 +1,6 @@
 # Nepalify
 
-A JavaScript library that adds support for typing (Romanized) Nepali(नेपाली) input on HTML `<input>` and `<textarea>`.
+A JavaScript library that adds support for typing Unicode Nepali(नेपाली) input on HTML `<input>` and `<textarea>` (using both traditional and romanized layouts).
 
 ## Supported Browsers
 
@@ -70,6 +70,15 @@ import nepalify from "nepalify";
 
 The default exports from the library consists of a handful of functions, as explained below.
 
+### availableLayouts()
+
+This method returns all available layouts, currently `romanized` and `traditional`. These layout names can be provided as options to other functions.
+
+```javascript
+console.log(nepalify.availableLayouts());
+// ["romanized", "traditional"]
+```
+
 ### interceptElementByID("unique-id")
 
 This method allows the library code to intercept the keypress events on `<input>` and `<textarea>` html elements, given an `id` selector. This can only be used in a browser.
@@ -77,8 +86,21 @@ This method allows the library code to intercept the keypress events on `<input>
 The argument to this function is the same as you'd provide to the standard `getElementById`
 
 ```javascript
-var inputEl = nepalify.interceptElementById("unique-input");
-var textareaEl = nepalify.interceptElementById("unique-textarea");
+var inputEl = nepalify.interceptElementById("unique-input-1");
+var textareaEl = nepalify.interceptElementById("unique-textarea-1");
+
+// Further options can be provided as a second argument
+const options = {
+  layout: "traditional",
+  enable: false,
+};
+nepalify.interceptElementById("unique-input-2", options);
+
+// When the options are not provided, the following defaults are used
+const defaultOptions = {
+  layout: "romanized",
+  enable: true,
+};
 ```
 
 At this point, the library should already be intercepting the keypresses. Go ahead and give it a try.
@@ -89,10 +111,9 @@ The object returned by the function above has more methods that can be used to c
 
 Returns a boolean value indicating whether the interception is turned on or not.
 
-#### enabled()
+#### enable()
 
 Enable the interception on the element. Already done by default.
-
 
 #### disable()
 
@@ -106,7 +127,20 @@ This method allows you to format the text to Unicode nepali. Also usable in Node
 ```javascript
 var text = "kiMkr/tv/ybimuX/";
 console.log(nepalify.format(text));
-//किंकर्तव्यबिमुढ्
+// किंकर्तव्यबिमुढ्
+
+// Further options can be provided as a second argument
+var text = "asdfghjkl";
+const options = {
+  layout: "traditional",
+};
+console.log(nepalify.format(text, options));
+// बकमानजवपि
+
+// When the options are not provided, the following defaults are used
+const defaultOptions = {
+  layout: "romanized",
+};
 ```
 
 ## Development

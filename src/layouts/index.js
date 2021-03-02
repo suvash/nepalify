@@ -1,7 +1,26 @@
-import romanized from "./romanized/index.js";
+import romanized from "./romanized";
+import traditional from "./traditional";
 
-const layouts = {
+const layoutStore = {
   romanized: romanized,
+  traditional: traditional,
 };
 
-export default layouts;
+export const defaultLayout = "romanized";
+
+export function availableLayouts() {
+  return Object.keys(layoutStore);
+}
+
+export function isValidLayout(layout) {
+  return availableLayouts().includes(layout);
+}
+
+export function fetchLayout(layout) {
+  if (isValidLayout(layout)) {
+    return layoutStore[layout];
+  } else {
+    const msg = "Invalid Layout : " + layout;
+    throw new Error(msg);
+  }
+}
