@@ -6,15 +6,17 @@ const layoutStore = {
   traditional: traditional,
 };
 
-function availableLayouts() {
+export const defaultLayoutName = "romanized";
+
+export function availableLayouts() {
   return Object.keys(layoutStore);
 }
 
-function isValidLayout(layout) {
+export function isValidLayout(layout) {
   return availableLayouts().includes(layout);
 }
 
-function fetchLayout(layout) {
+export function fetchLayout(layout) {
   if (isValidLayout(layout)) {
     return layoutStore[layout];
   } else {
@@ -22,11 +24,3 @@ function fetchLayout(layout) {
     throw new Error(msg);
   }
 }
-
-const layouts = {
-  fetchLayout: fetchLayout,
-  isValidLayout: isValidLayout,
-  availableLayouts: availableLayouts,
-};
-
-export default layouts;

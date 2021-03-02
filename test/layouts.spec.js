@@ -1,36 +1,47 @@
 import { expect } from "chai";
-import layouts from "../src/layouts";
+import {
+  fetchLayout,
+  isValidLayout,
+  availableLayouts,
+  defaultLayoutName,
+} from "../src/layouts";
 
 describe("layouts", () => {
+  describe("defaultLayoutName", () => {
+    it("should be defined", () => {
+      expect(defaultLayoutName).to.equal("romanized");
+    });
+  });
+
   describe("availableLayouts()", () => {
     it("should return a list of available layouts", () => {
       const expected = ["romanized", "traditional"];
-      expect(layouts.availableLayouts()).to.deep.equal(expected);
+      expect(availableLayouts()).to.deep.equal(expected);
     });
   });
 
   describe("isValidLayout(layout_name)", () => {
     it("should return a boolean given a layout name", () => {
-      expect(layouts.isValidLayout("bogus")).to.equal(false);
-      expect(layouts.isValidLayout("random")).to.equal(false);
+      expect(isValidLayout("bogus")).to.equal(false);
+      expect(isValidLayout("random")).to.equal(false);
 
-      expect(layouts.isValidLayout("romanized")).to.equal(true);
-      expect(layouts.isValidLayout("traditional")).to.equal(true);
+      expect(isValidLayout("romanized")).to.equal(true);
+      expect(isValidLayout("traditional")).to.equal(true);
     });
   });
 
   describe("fetchLayout(layout_name)", () => {
     it("when valid should return a layout object", () => {
-      expect(layouts.fetchLayout("romanized")).to.be.an("object");
+      expect(fetchLayout("romanized")).to.be.an("object");
       expect(() => {
-        layouts.fetchLayout("romanized");
+        fetchLayout("romanized");
       }).to.not.throw("Invalid Layout");
-      expect(layouts.fetchLayout("traditional").name).to.equal("traditional");
+      expect(fetchLayout("traditional").name).to.equal("traditional");
     });
 
     it("when invalid should throw an exception", () => {
       expect(() => {
-        layouts.fetchLayout("bogus");
+        fetchLayout("bogus");
       }).to.throw("Invalid Layout");
     });
   });

@@ -1,12 +1,13 @@
-import layouts from "./layouts";
-
-const defaultLayout = layouts.romanized;
+import { fetchLayout, defaultLayoutName } from "./layouts";
 
 function format(dirtyStr, dirtyOptions) {
+  const defaultOptions = {
+    layout: defaultLayoutName,
+  };
   const text = String(dirtyStr);
-  const options = dirtyOptions || {};
+  const options = { ...defaultOptions, ...dirtyOptions };
 
-  const layout = options.layout || defaultLayout;
+  const layout = fetchLayout(options.layout);
   return Array.from(text, (c) => layout.formatKey(c) || c).join("");
 }
 
@@ -41,7 +42,7 @@ function wrapHandlerwithLayout(layout) {
 
 function interceptElementById(dirtyIdSelector, dirtyOptions) {
   const defaultOptions = {
-    layout: defaultLayout,
+    layout: defaultLayoutName,
     enable: true,
   };
 
@@ -49,8 +50,8 @@ function interceptElementById(dirtyIdSelector, dirtyOptions) {
   const selector = String(dirtyIdSelector);
   const el = document.getElementById(selector);
 
-  var layout = options.layout;
-  var handler = wrapHandlerwithLayout(layout);
+  const layout = fetchLayout(options.layout);
+  const handler = wrapHandlerwithLayout(layout);
   var enabled = false;
 
   if (options.enable) {
@@ -80,7 +81,6 @@ function interceptElementById(dirtyIdSelector, dirtyOptions) {
 }
 
 const nepalify = {
-  layouts: layouts,
   format: format,
   interceptElementById: interceptElementById,
 };
