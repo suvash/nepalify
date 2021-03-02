@@ -23,6 +23,8 @@
     <script src="<%= htmlWebpackPlugin.files.js[f] %>"></script>
     <% } %>
     <script>
+      console.log(nepalify.availableLayouts());
+
       var rom_text = "kiMkr/tv/ybimuX/ haha";
       var rom_ftext = nepalify.format(rom_text, { layout: "romanized" });
       console.log(rom_text);
