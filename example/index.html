@@ -23,11 +23,8 @@
     <script src="<%= htmlWebpackPlugin.files.js[f] %>"></script>
     <% } %>
     <script>
-      var romanized = nepalify.layouts.romanized;
-      var traditional = nepalify.layouts.traditional;
-
       var rom_text = "kiMkr/tv/ybimuX/ haha";
-      var rom_ftext = nepalify.format(rom_text, { layout: romanized });
+      var rom_ftext = nepalify.format(rom_text, { layout: "romanized" });
       console.log(rom_text);
       console.log(rom_ftext);
 
@@ -35,13 +32,13 @@
       console.log(default_ftext);
 
       var trad_text = "asdfghjkl";
-      var trad_ftext = nepalify.format(trad_text, { layout: traditional });
+      var trad_ftext = nepalify.format(trad_text, { layout: "traditional" });
       console.log(trad_text);
       console.log(trad_ftext);
 
       var rom_nep1 = nepalify.interceptElementById("rom-input-1");
       var rom_nep2 = nepalify.interceptElementById("rom-text-1", {
-        layout: romanized,
+        layout: "romanized",
       });
       var rom_nep3 = nepalify.interceptElementById("rom-text-2", {
         enable: false,
@@ -51,13 +48,13 @@
       console.log("rom_nep3 enabled :" + rom_nep3.isEnabled());
 
       var trad_nep1 = nepalify.interceptElementById("trad-input-1", {
-        layout: traditional,
+        layout: "traditional",
       });
       var trad_nep2 = nepalify.interceptElementById("trad-text-1", {
-        layout: traditional,
+        layout: "traditional",
       });
       var trad_nep3 = nepalify.interceptElementById("trad-text-2", {
-        layout: traditional,
+        layout: "traditional",
         enable: false,
       });
       console.log("trad_nep1 enabled :" + trad_nep1.isEnabled());
