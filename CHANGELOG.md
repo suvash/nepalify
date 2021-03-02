@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 - Setup local testing
 - Added tests for layouts and romanized module
+- Added 'traditional' layout with tests
+- Refactor modules for better testability
+- Expose availableLayouts function to top level export
 
 ## [0.4.2] - 2021-02-15
 - Update all npm dependencies except webpack
