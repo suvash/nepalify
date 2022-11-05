@@ -17,6 +17,7 @@ Official Demo : https://www.thapaliya.com/en/writings/practice-romanized-nepali-
 If you've used Nepalify in a project and would like to include it in this list, feel free to reach out or open an issue.
 
 - [Samajik/सामाजिक](http://samajik.glitch.me/): View the source at https://glitch.com/edit/#!/samajik
+- [Election Candidates](https://election-candidates.vercel.app): View the source at https://github.com/thenishantsapkota/Election-Candidates
 
 
 ## Installation
