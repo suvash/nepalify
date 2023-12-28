@@ -16,6 +16,7 @@ Official Demo : https://www.thapaliya.com/en/writings/practice-romanized-nepali-
 
 If you've used Nepalify in a project and would like to include it in this list, feel free to reach out or open an issue.
 
+- [NID Pre-Enrollment System, Government of Nepal](https://enrollment.donidcr.gov.np/PreEnrollment/): On the NID New Enrollement Form
 - [Samajik/सामाजिक](http://samajik.glitch.me/): View the source at https://glitch.com/edit/#!/samajik
 
 
